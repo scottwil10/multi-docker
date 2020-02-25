@@ -14,9 +14,10 @@ after_sucess:
   - docker build -t scowil101/multi-server ./server
   - docker build -t scowil101/multi-worker ./worker
 
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --passowrd-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   - docker push scowil101/multi-client
   - docker push scowil101/multi-nginx
   - docker push scowil101/multi-server
   - docker push scowil101/multi-worker
+  
