@@ -3,21 +3,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t scottwil101/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t scowil101/react-test -f ./client/Dockerfile.dev ./client
 
-scirpt:
-  - docker run scottwil101/react-test npm test -- -- coverage
+script:
+  - docker run scowil101/react-test npm test -- -- coverage
 
 after_sucess:
-  - docker build-t scottwil101/multi-client ./client
-  - docker build-t scottwil101/multi-nginx ./nginx
-  - docker build-t scottwil101/multi-server ./server
-  - docker build-t scottwil101/multi-worker ./worker
+  - docker build-t scowil101/multi-client ./client
+  - docker build-t scowil101/multi-nginx ./nginx
+  - docker build-t scowil101/multi-server ./server
+  - docker build-t scowil101/multi-worker ./worker
 
- - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --passowrd-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --passowrd-stdin
 
- - docker push scottwil101/multi-client
- - docker push scottwil101/multi-nginx
- - docker push scottwil101/multi-server
- - docker push scottwil101/multi-worker
- 
+  - docker push scowil101/multi-client
+  - docker push scowil101/multi-nginx
+  - docker push scowil101/multi-server
+  - docker push scowil101/multi-worker
