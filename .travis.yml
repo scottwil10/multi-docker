@@ -20,4 +20,3 @@ after_sucess:
  - docker push scottwil101/multi-nginx
  - docker push scottwil101/multi-server
  - docker push scottwil101/multi-worker
- 
