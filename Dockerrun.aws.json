@@ -1,37 +1,35 @@
 {
-
 "AWSEBDockerrunversion": 2,
 "containerDefinitions": [
-    {
+  {
     "name": "client",
     "image": "scowil101/multi-client",
     "hostname": "client",
     "essential": false
-    },
-    {
+  },
+  {
     "name": "server",
     "image": "scowil101/multi-server",
     "hostname": "api",
     "essential": false
-    },
-    {
+  },
+  {
     "name": "worker",
     "image": "scowil101/multi-worker",
     "hostname": "worker",
     "essential": false
-    },
-    {
+  },
+  {
     "name": "nginxr",
     "image": "scowil101/multi-nginx",
     "hostname": "nginx",
     "essential": true,
     "portMappings": [
-      {
-        "hostPort": 80,
-        "containerPort": 80
-      }
-
-     ],
+     {
+      "hostPort": 80,
+      "containerPort": 80
+     }
+    ],
      "links": ["client", "server"]
     }
 
