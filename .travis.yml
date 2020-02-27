@@ -20,4 +20,16 @@ after_sucess:
   - docker push scowil101/multi-nginx
   - docker push scowil101/multi-server
   - docker push scowil101/multi-worker
-  
+
+
+  deploy:
+    provider: elsticbeanstalk
+    region: us-east-1
+    app: multi-docker
+    env: MultiDocker-env
+    bucket_name: elasticbeanstalk-us-east-1-485621712162
+    bucket_path: docker-multi
+    on:
+      branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
