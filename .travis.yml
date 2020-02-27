@@ -22,7 +22,7 @@ after_sucess:
   - docker push scowil101/multi-worker
 
   deploy:
-    provider: elsticbeanstalk
+    provider: elasticbeanstalk
     region: us-east-1
     app: multi-docker
     env: MultiDocker-env
